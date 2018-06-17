@@ -118,6 +118,7 @@
     </Compile>
     <Compile Include="Models\Database\Context\EFContext.cs" />
     <Compile Include="Models\Database\DatabaseModel.cs" />
+    <Compile Include="Models\Database\DatabaseWorker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
