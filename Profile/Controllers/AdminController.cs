@@ -9,11 +9,12 @@ namespace Profile.Controllers
 {
     public class AdminController : Controller
     {
-        DatabaseWorker DBWorker = new DatabaseWorker();
+        
         public ActionResult Index()
         {
-            return View(DBWorker.GetGroupList());
+            return View();
         }
+
 
     } // end controller
 } // end namespace
