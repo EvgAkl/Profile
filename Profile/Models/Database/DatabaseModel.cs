@@ -4,14 +4,6 @@ using System.Web;
 
 namespace Profile.Models.Database
 {
-    public enum GroupName
-    {
-        Racers = 1,
-        Bikers,
-        Jokers,
-        Musicians
-    }
-
     public enum Rank
     {
         Tiny = 1,
@@ -25,7 +17,7 @@ namespace Profile.Models.Database
     public class Group
     {
         public int GroupId { get; set; }
-        public GroupName Name { get; set; }
+        public string Name { get; set; }
         public int CountMembers { get; set; }
         public Rank Rank { get; set; }
         public DateTime CreationDate { get; set; }
