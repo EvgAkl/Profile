@@ -6,15 +6,13 @@ using Profile.Models.Database.Context;
 
 namespace Profile.Models.Database
 {
-    public static class DatabaseWorker
+    public class DatabaseWorker
     {
-        public static List<Group> GetGroupList()
+        EFContext database = new EFContext();
+        public List<Group> GetGroupList()
         {
             List<Group> dataList = new List<Group>();
-            using (EFContext database = new EFContext())
-            {
-                dataList = database.Groups.Select(s => s).ToList();
-            }
+            dataList = database.Groups.Select(s => s).ToList();
             return dataList;
         } // end GetGroupList()
 

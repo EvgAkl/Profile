@@ -30,7 +30,7 @@ namespace Profile.Models.Database
         public Rank Rank { get; set; }
         public DateTime CreationDate { get; set; }
         public int Karma { get; set; }
-        public HttpPostedFileBase Avatar { get; set; } 
+        public string ImagePath { get; set; } 
     } // end "Group" class
 
 } // end namespace
