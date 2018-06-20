@@ -2,6 +2,8 @@
 
 @{
     ViewBag.Title = "Groups list";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    <link href="~/Content/AdminGroupStyle.css" rel="stylesheet" />
 }
 
 <h2>Groups</h2>
@@ -32,14 +34,14 @@
                         @using (Html.BeginForm("Edit"))
                         {
                             @Html.Hidden("Id", line.GroupId)
-                            <input type="submit" value="Modify" />
+                            <input class="button" type="submit" value="Modify" />
                         }
                     </td>
                     <td>
                         @using (Html.BeginForm("Delete"))
                         {
                             @Html.Hidden("Id", line.GroupId)
-                            <input type="submit" value="Modify" />
+                            <input class="button" type="submit" value="Modify" />
                         }
                     </td>
                 </tr>
