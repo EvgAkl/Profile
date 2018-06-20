@@ -1,4 +1,5 @@
-﻿
+﻿@model Profile.ViewModels.AdminGroup.IndexViewModel
+
 @{
     ViewBag.Title = "Create Group";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -6,3 +7,44 @@
 
 <h2>Create</h2>
 
+<div>
+    <table class="table-wrapper">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Creation date</th>
+                <th>Members count</th>
+                <th>Rank</th>
+                <th>Karma</th>
+                <th>Avatar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var line in Model.GroupsList)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(d => line.Name)</td>
+                    <td>@Html.DisplayFor(d => line.CreationDate)</td>
+                    <td>@Html.DisplayFor(d => line.CountMembers)</td>
+                    <td>@Html.DisplayFor(d => line.Rank)  </td>
+                    <td>@Html.DisplayFor(d => line.Karma) </td>
+                    <td><img /></td>
+                    <td>
+                        @using (Html.BeginForm("Edit"))
+                        {
+                            @Html.Hidden("Id", line.GroupId)
+                            <input class="button" type="submit" value="Modify" />
+                        }
+                    </td>
+                    <td>
+                        @using (Html.BeginForm("Delete"))
+                        {
+                            @Html.Hidden("Id", line.GroupId)
+                            <input class="button" type="submit" value="Modify" />
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

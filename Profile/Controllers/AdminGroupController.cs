@@ -24,9 +24,9 @@ namespace Profile.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Group group)
+        public ActionResult Create(CreateViewModel model)
         {
-            DBWorker.CreateGroup(group);
+            DBWorker.CreateGroup(model.Group);
             return RedirectToAction("Index");
         } // end Add()
 

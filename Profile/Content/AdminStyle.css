@@ -30,3 +30,25 @@
     background-color : rgb(50, 200, 50);
     color : rgb(240, 230, 170);
 }
+
+
+.table-wrapper{
+    display : flex;
+    flex-direction : row;
+    justify-content : center;
+}
+.table-head{
+    font-size : 18px;
+    font-weight : normal;
+    text-align : center;
+}
+
+
+
+
+
+
+
+
+
+
