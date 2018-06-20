@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Profile.Models.Database;
+using Profile.ViewModels.AdminGroup;
 
 namespace Profile.Controllers
 {
@@ -12,7 +13,9 @@ namespace Profile.Controllers
         DBWorkerAdminGroup DBWorker = new DBWorkerAdminGroup();
         public ActionResult Index()
         {
-            return View(DBWorker.GetGroupList());
+            IndexViewModel model = new IndexViewModel();
+            model.GroupsList = DBWorker.GetGroupList();
+            return View(model);
         } // end Index()
 
         [HttpGet]
