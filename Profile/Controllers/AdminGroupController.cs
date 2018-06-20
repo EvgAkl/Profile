@@ -23,7 +23,7 @@ namespace Profile.Controllers
         [HttpPost]
         public ActionResult Create(Group group)
         {
-            DBWorker.AddGroup(group);
+            DBWorker.CreateGroup(group);
             return RedirectToAction("Index");
         } // end Add()
 

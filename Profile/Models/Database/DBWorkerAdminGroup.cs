@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using Profile.Models.Database.Context;
+using Profile.Models.Database.AbstractWorkers;
 
 namespace Profile.Models.Database
 {
-    public class DBWorkerAdminGroup
+    public class DBWorkerAdminGroup : IWorkerAdminGroup
     {
         EFContext database = new EFContext();
         public List<Group> GetGroupList()
@@ -16,7 +16,7 @@ namespace Profile.Models.Database
             return dataList;
         } // end GetGroupList()
 
-        public void AddGroup(Group group)
+        public void CreateGroup(Group group)
         {
             database.Groups.Add(group);
             try

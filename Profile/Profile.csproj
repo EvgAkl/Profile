@@ -117,6 +117,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Database\AbstractWorkers\IWorkerAdminGroup.cs" />
     <Compile Include="Models\Database\Context\EFContext.cs" />
     <Compile Include="Models\Database\DatabaseModel.cs" />
     <Compile Include="Models\Database\DBWorkerAdminGroup.cs" />
