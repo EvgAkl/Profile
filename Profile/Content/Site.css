@@ -1,18 +1,38 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    width : 100%;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+
+.button{
+    display : inline-block;
+    font-size : 18px;
+    text-decoration : none;
+    margin : 0;
+    padding : 4px 10px 4px 10px;
+    font-weight : normal;
+    text-align : center;
+    vertical-align : middle;
+    white-space : nowrap;
+    border : 1px solid;
+    border-radius : 8px;
+    cursor : default;
+}
+.button-create, 
+.button-create:link, 
+.button-create:active{
+    background-color : rgb(50, 240, 50);
+    border-color : rgb(10, 210, 40);
+    color : rgb(120, 110, 60);
+}
+.button-create:hover, 
+.button-create:focus{
+    border-width : 1.5px 1.5px 1px 1px;
+    background-color : rgb(50, 200, 50);
+    color : rgb(240, 230, 170);
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
+
+
+
+
 
