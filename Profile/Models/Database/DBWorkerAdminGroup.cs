@@ -6,7 +6,7 @@ using Profile.Models.Database.Context;
 
 namespace Profile.Models.Database
 {
-    public class DatabaseWorker
+    public class DBWorkerAdminGroup
     {
         EFContext database = new EFContext();
         public List<Group> GetGroupList()

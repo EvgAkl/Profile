@@ -119,7 +119,7 @@
     </Compile>
     <Compile Include="Models\Database\Context\EFContext.cs" />
     <Compile Include="Models\Database\DatabaseModel.cs" />
-    <Compile Include="Models\Database\DatabaseWorker.cs" />
+    <Compile Include="Models\Database\DBWorkerAdminGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AdminGroup\IndexViewModel.cs" />
   </ItemGroup>

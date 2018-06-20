@@ -9,19 +9,19 @@ namespace Profile.Controllers
 {
     public class AdminGroupController : Controller
     {
-        DatabaseWorker DBWorker = new DatabaseWorker();
+        DBWorkerAdminGroup DBWorker = new DBWorkerAdminGroup();
         public ActionResult Index()
         {
             return View(DBWorker.GetGroupList());
         } // end Index()
 
         [HttpGet]
-        public ActionResult Add()
+        public ActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Add(Group group)
+        public ActionResult Create(Group group)
         {
             DBWorker.AddGroup(group);
             return RedirectToAction("Index");
