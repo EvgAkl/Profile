@@ -13,25 +13,48 @@ namespace Profile.Controllers
         public ActionResult Index()
         {
             return View(DBWorker.GetGroupList());
-        }
+        } // end Index()
 
-        [HttpPost]
+        [HttpGet]
         public ActionResult Add()
         {
-            return RedirectToAction("Index");
+            return View();
         }
-
         [HttpPost]
+        public ActionResult Add(Group group)
+        {
+            DBWorker.AddGroup(group);
+            return RedirectToAction("Index");
+        } // end Add()
+
+        [HttpGet]
         public ActionResult Edit(int id)
         {
-            return RedirectToAction("Index");
+            try
+            {
+                Group group = DBWorker.GetGroupList().Find(f => f.GroupId == id);
+            }
+            catch
+            {
+                string[] errorMessages = { "This group not fond" };
+                return View("Error", errorMessages);
+            }
+
+            return View();
         }
+        [HttpPost]
+        public ActionResult Edit(Group group)
+        {
+            DBWorker.EditGroup(group);
+            return RedirectToAction("Index");
+        } // end Edit
 
         [HttpPost]
         public ActionResult Delete(int id)
         {
+            DBWorker.RemoveGroup(id);
             return RedirectToAction("Index");
-        }
+        } // end Delete
 
     } // end controller
 } // end namespace

@@ -16,5 +16,42 @@ namespace Profile.Models.Database
             return dataList;
         } // end GetGroupList()
 
+        public void AddGroup(Group group)
+        {
+            database.Groups.Add(group);
+            try
+            {
+                database.SaveChanges();
+            }
+            catch { }
+        } // end AddGroup()
+
+        public void EditGroup(Group group)
+        {
+            try
+            {
+                Group entity = database.Groups.Find(group.GroupId);
+                entity.Name = group.Name;
+                entity.Rank = group.Rank;
+                entity.Karma = group.Karma;
+                entity.CountMembers = group.CountMembers;
+                entity.CreationDate = group.CreationDate;
+                entity.ImagePath = group.ImagePath;
+                database.SaveChanges();
+            }
+            catch { }
+        } // end EditGroup()
+
+        public void RemoveGroup(int id)
+        {
+            try
+            {
+                Group group = database.Groups.Find(id);
+                database.Groups.Remove(group);
+                database.SaveChanges();
+            }
+            catch { }     
+        } // end RemoveGroup()
+
     } // end class
 } // end namespace
