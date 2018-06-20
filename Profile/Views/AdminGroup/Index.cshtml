@@ -1,0 +1,54 @@
+﻿@model Profile.ViewModels.AdminGroup.IndexViewModel
+
+@{
+    ViewBag.Title = "Groups list";
+}
+
+<h2>Groups</h2>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Creation date</th>
+                <th>Members count</th>
+                <th>Rank</th>
+                <th>Karma</th>
+                <th>Avatar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var line in Model.GroupsList)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(d => line.Name, new { @class = "" })</td>
+                    <td>@Html.DisplayFor(d => line.CreationDate)</td>
+                    <td>@Html.DisplayFor(d => line.CountMembers)</td>
+                    <td>@Html.DisplayFor(d => line.Rank)  </td>
+                    <td>@Html.DisplayFor(d => line.Karma) </td>
+                    <td><img /></td>
+                    <td>
+                        @using (Html.BeginForm("Edit"))
+                        {
+                            @Html.Hidden("Id", line.GroupId)
+                            <input type="submit" value="Modify" />
+                        }
+                    </td>
+                    <td>
+                        @using (Html.BeginForm("Delete"))
+                        {
+                            @Html.Hidden("Id", line.GroupId)
+                            <input type="submit" value="Modify" />
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    @Html.ActionLink("Add Group", "Add")
+</div>
+

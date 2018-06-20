@@ -16,9 +16,21 @@ namespace Profile.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditGroup(int id)
+        public ActionResult Add()
         {
-            return RedirectToAction("Groups");
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Edit(int id)
+        {
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            return RedirectToAction("Index");
         }
 
     } // end controller
