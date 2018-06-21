@@ -16,6 +16,7 @@ namespace Profile.Models.Database
         Impossible
     }
 
+    [Bind(Exclude = "CreationDate")]
     public class Group
     {
         public int GroupId { get; set; }
