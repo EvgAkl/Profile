@@ -14,6 +14,9 @@ namespace Profile.Controllers
         public ActionResult Index()
         {
             IndexViewModel model = new IndexViewModel();
+            //model.GroupsList = new List<Group>();
+            //Group grop = new Group() { Name = "Show", CountMembers = 12, CreationDate = DateTime.Now, Karma = -28 };
+            //model.GroupsList.Add(grop);
             model.GroupsList = DBWorker.GetGroupList();
             return View(model);
         } // end Index()
@@ -28,6 +31,7 @@ namespace Profile.Controllers
         {
             if (ModelState.IsValid)
             {
+                model.Group.CreationDate = DateTime.Now;
                 DBWorker.CreateGroup(model.Group);
                 return RedirectToAction("Index");
             }
