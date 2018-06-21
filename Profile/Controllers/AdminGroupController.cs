@@ -26,8 +26,12 @@ namespace Profile.Controllers
         [HttpPost]
         public ActionResult Create(CreateViewModel model)
         {
-            DBWorker.CreateGroup(model.Group);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                DBWorker.CreateGroup(model.Group);
+                return RedirectToAction("Index");
+            }
+            else return View(model);
         } // end Add()
 
         [HttpGet]

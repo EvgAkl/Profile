@@ -13,7 +13,7 @@
 <div class="form-wrapper">
     @using (Html.BeginForm())
     {
-
+        @Html.HiddenFor(m => m.Group.CreationDate)
         <div class="form-line">
             <div class="form-line-box-left">
                 @Html.LabelFor(m => m.Group.Name, new { @class = "form-line-box-left-label" })
@@ -22,44 +22,79 @@
                 @Html.EditorFor(s => s.Group.Name, new { htmlAttributes = new { @class = "form-line-box-right-input" } })
             </div>
         </div>
-            <div class="form-line">
-                <div class="form-line-box-left">
-                    @Html.LabelFor(m => m.Group.CreationDate, new { @class = "form-line-box-left-label" })
-                </div>
-                <div class="form-line-box-right">
-                    @Html.EditorFor(s => s.Group.CreationDate, new { htmlAttributes = new { @class = "form-line-box-right-input" } })
-                </div>
+        <div class="form-line-empty">
+            <div class="form-line-box-left"> 
             </div>
-            <div class="form-line">
-                <div class="form-line-box-left">
-                    @Html.LabelFor(m => m.Group.CountMembers, new { @class = "form-line-box-left-label" })
-                </div>
-                <div class="form-line-box-right">
-                    @Html.EditorFor(s => s.Group.CountMembers, new { htmlAttributes = new { @class = "form-line-box-right-input" } })
-                </div>
+            <div class="form-line-box-right">
+                @Html.ValidationMessageFor(m => m.Group.Name)
             </div>
-            <div class="form-line">
-                <div class="form-line-box-left">
-                    @Html.LabelFor(m => m.Group.Rank, new { @class = "form-line-box-left-label" })
-                </div>
-                <div class="form-line-box-right">
-                    @Html.DropDownListFor(s => s.Group.Rank, new SelectList(Enum.GetNames(typeof(Rank))), new { @class = "form-line-box-right-input" })
-                </div>
+        </div>
+        <div class="form-line">
+            <div class="form-line-box-left">
+                @Html.LabelFor(m => m.Group.CountMembers, new { @class = "form-line-box-left-label" })
             </div>
-            <div class="form-line">
-                <div class="form-line-box-left">
-                    @Html.LabelFor(m => m.Group.ImagePath, new { @class = "form-line-box-left-label" })
-                </div>
-                <div class="form-line-box-right">
-                    @Html.EditorFor(s => s.Group.Karma, new { htmlAttributes = new { @class = "form-line-box-right-input" } })
-                </div>
+            <div class="form-line-box-right">
+                @Html.EditorFor(s => s.Group.CountMembers, new { htmlAttributes = new { @class = "form-line-box-right-input" } })
             </div>
-            <div class="form-line">
-                <div class="form-line-box">
-                    <input class="button button-form " type="submit" value="Create" />
-                    @Html.ActionLink("Cancle", "Index", null, new { @class = "button button-link" });
-                </div>
+        </div>
+        <div class="form-line-empty">
+            <div class="form-line-box-left">
             </div>
+            <div class="form-line-box-right">
+                @Html.ValidationMessageFor(m => m.Group.CountMembers)
+            </div>
+        </div>
+        <div class="form-line">
+            <div class="form-line-box-left">
+                @Html.LabelFor(m => m.Group.Karma, new { @class = "form-line-box-left-label" })
+            </div>
+            <div class="form-line-box-right">
+                @Html.EditorFor(s => s.Group.Karma, new { htmlAttributes = new { @class = "form-line-box-right-input" } })
+            </div>
+        </div>
+        <div class="form-line-empty">
+            <div class="form-line-box-left">
+            </div>
+            <div class="form-line-box-right">
+                @Html.ValidationMessageFor(m => m.Group.Karma)
+            </div>
+        </div>
+        <div class="form-line">
+            <div class="form-line-box-left">
+                @Html.LabelFor(m => m.Group.Rank, new { @class = "form-line-box-left-label" })
+            </div>
+            <div class="form-line-box-right">
+                @Html.DropDownListFor(s => s.Group.Rank, new SelectList(Enum.GetNames(typeof(Rank))), new { @class = "form-line-box-right-input" })
+            </div>
+        </div>
+        <div class="form-line-empty">
+            <div class="form-line-box-left">
+            </div>
+            <div class="form-line-box-right">
+                @Html.ValidationMessageFor(m => m.Group.Rank)
+            </div>
+        </div>
+        <div class="form-line">
+            <div class="form-line-box-left">
+                @Html.LabelFor(m => m.Group.ImagePath, new { @class = "form-line-box-left-label" })
+            </div>
+            <div class="form-line-box-right">
+                @Html.EditorFor(s => s.Group.ImagePath, new { htmlAttributes = new { @class = "form-line-box-right-input" } })
+            </div>
+        </div>
+        <div class="form-line-empty">
+            <div class="form-line-box-left">
+            </div>
+            <div class="form-line-box-right">
+                @Html.ValidationMessageFor(m => m.Group.ImagePath)
+            </div>
+        </div>
+        <div class="form-line">
+            <div class="form-line-box">
+                <input class="button button-form " type="submit" value="Create" />
+                @Html.ActionLink("Cancle", "Index", null, new { @class = "button button-link" });
+            </div>
+        </div>
     }
     
 </div>
