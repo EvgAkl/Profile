@@ -122,6 +122,10 @@
     <Compile Include="Migrations\201806171215041_InitialCreate.Designer.cs">
       <DependentUpon>201806171215041_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806211905029_AddDataAnatationsToGroupsTable.cs" />
+    <Compile Include="Migrations\201806211905029_AddDataAnatationsToGroupsTable.Designer.cs">
+      <DependentUpon>201806211905029_AddDataAnatationsToGroupsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Database\AbstractWorkers\IWorkerAdminGroup.cs" />
     <Compile Include="Models\Database\Context\EFContext.cs" />
@@ -158,6 +162,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201806171215041_InitialCreate.resx">
       <DependentUpon>201806171215041_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806211905029_AddDataAnatationsToGroupsTable.resx">
+      <DependentUpon>201806211905029_AddDataAnatationsToGroupsTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
