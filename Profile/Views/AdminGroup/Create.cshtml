@@ -1,4 +1,6 @@
-﻿@model Profile.ViewModels.AdminGroup.CreateViewModel
+﻿@using Profile.Models.Database
+@using Profile.ViewModels.AdminGroup
+@model CreateViewModel
 
 @{
     ViewBag.Title = "Create Group";
@@ -9,30 +11,26 @@
 
 @using (Html.BeginForm())
 {
-    <div class="table-wrapper">
-        <table class="table-full">
-            <thead class="table-head">
-                <tr>
-                    <th class="table-column-1">Name</th>
-                    <th class="table-column-2">Creation date</th>
-                    <th class="table-column-3">Members count</th>
-                    <th class="table-column-4">Rank</th>
-                    <th class="table-column-5">Karma</th>
-                    <th>Avatar</th>
-                </tr>
-            </thead>
-            <tbody class="table-body">
-                <tr>
-                    <td class="table-column-1">@Html.EditorFor(s => s.Group.Name) </td>
-                    <td class="table-column-2">@Html.EditorFor(s => s.Group.CreationDate) </td>
-                    <td class="table-column-3">@Html.EditorFor(s => s.Group.CountMembers)</td>
-                    <td class="table-column-4">@Html.EnumDropDownListFor(s => s.Group.Rank, new { @class = "table-cell-enum" })</td>
-                    <td class="table-column-5">@Html.EditorFor(s => s.Group.Karma) </td>
-                    <td><img /></td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="form-wrapper">
+        <section class="form-section-label">
+            @Html.LabelFor(m => m.Group.Name, new { @class = "form-label" })
+            @Html.LabelFor(m => m.Group.CreationDate, new { @class = "form-label" })
+            @Html.LabelFor(m => m.Group.CountMembers, new { @class = "form-label" })
+            @Html.LabelFor(m => m.Group.Rank, new { @class = "form-label" })
+            @Html.LabelFor(m => m.Group.ImagePath, new { @class = "form-label" })
+        </section>
+        <section class="form-section-input">
+            @Html.EditorFor(s => s.Group.Name, new { htmlAttributes = new { @class = "form-input" } })
+            @Html.EditorFor(s => s.Group.CreationDate, new { htmlAttributes = new { @class = "form-input" } })
+            @Html.EditorFor(s => s.Group.CountMembers, new { htmlAttributes = new { @class = "form-input" } })
+            @Html.DropDownListFor(s => s.Group.Rank, new SelectList(Enum.GetNames(typeof(Rank))), new { @class = "form-input" })
+            @Html.EditorFor(s => s.Group.Karma, new { htmlAttributes = new { @class = "form-input" } })
+        </section>
     </div>
     <input class="button" type="submit" value="Create" />
 }
+
+
+
+
 

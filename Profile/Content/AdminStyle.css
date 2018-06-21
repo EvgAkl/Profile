@@ -4,6 +4,8 @@
     background-color : rgb(15, 240, 240)
 }
 
+
+/* Buttons style */
 .button{
     display : inline-block;
     font-size : 18px;
@@ -32,7 +34,7 @@
     color : rgb(240, 230, 170);
 }
 
-
+/* Table style */
 .table-wrapper{
     display : flex;
     flex-direction : row;
@@ -59,6 +61,30 @@
 .table-column-4,
 .table-column-5{
     width :10%
+}
+/* Form style */
+.form-wrapper{
+    display : flex;
+    flex-direction : row;
+    justify-content : center;
+}
+.form-section-label{
+    width : 30%;
+    margin : 10px;
+    font-size : 28px;
+}
+.form-section-input{
+    width : 30%;
+    margin : 10px;
+}
+.form-label{
+    display : block;
+    margin : 0;
+}
+.form-input{
+    display : block;
+    margin : 0;
+    font-size : 26px;
 }
 
 
