@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Profile.Models.Database;
-using Profile.ViewModels.AdminGroup;
 
 namespace Profile.Controllers
 {
@@ -13,11 +12,8 @@ namespace Profile.Controllers
         DBWorkerAdminGroup DBWorker = new DBWorkerAdminGroup();
         public ActionResult Index()
         {
-            IndexViewModel model = new IndexViewModel();
-            //model.GroupsList = new List<Group>();
-            //Group grop = new Group() { Name = "Show", CountMembers = 12, CreationDate = DateTime.Now, Karma = -28 };
-            //model.GroupsList.Add(grop);
-            model.GroupsList = DBWorker.GetGroupList();
+            List<Group> model = new List<Group>();
+            model = DBWorker.GetGroupList();
             return View(model);
         } // end Index()
 
