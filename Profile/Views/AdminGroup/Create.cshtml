@@ -1,6 +1,5 @@
 ﻿@using Profile.Models.Database
-@using Profile.ViewModels.AdminGroup
-@model CreateViewModel
+@model Group
 
 @{
     ViewBag.Title = "Create Group";
@@ -15,77 +14,77 @@
     {
         <div class="form-line">
             <div class="form-line-box-left">
-                @Html.LabelFor(m => m.Group.Name, new { @class = "form-line-box-left-label" })
+                @Html.LabelFor(m => m.Name, new { @class = "form-line-box-left-label" })
             </div>
             <div class="form-line-box-right">
-                @Html.EditorFor(s => s.Group.Name, new { htmlAttributes = new { @class = "form-line-box-right-input" } })
+                @Html.EditorFor(s => s.Name, new { htmlAttributes = new { @class = "form-line-box-right-input" } })
             </div>
         </div>
         <div class="form-line-empty">
             <div class="form-line-box-left"> 
             </div>
             <div class="form-line-box-right">
-                @Html.ValidationMessageFor(m => m.Group.Name)
+                @Html.ValidationMessageFor(m => m.Name)
             </div>
         </div>
         <div class="form-line">
             <div class="form-line-box-left">
-                @Html.LabelFor(m => m.Group.CountMembers, new { @class = "form-line-box-left-label" })
+                @Html.LabelFor(m => m.CountMembers, new { @class = "form-line-box-left-label" })
             </div>
             <div class="form-line-box-right">
-                @Html.EditorFor(s => s.Group.CountMembers, new { htmlAttributes = new { @class = "form-line-box-right-input" } })
+                @Html.EditorFor(s => s.CountMembers, new { htmlAttributes = new { @class = "form-line-box-right-input" } })
             </div>
         </div>
         <div class="form-line-empty">
             <div class="form-line-box-left">
             </div>
             <div class="form-line-box-right">
-                @Html.ValidationMessageFor(m => m.Group.CountMembers)
+                @Html.ValidationMessageFor(m => m.CountMembers)
             </div>
         </div>
         <div class="form-line">
             <div class="form-line-box-left">
-                @Html.LabelFor(m => m.Group.Karma, new { @class = "form-line-box-left-label" })
+                @Html.LabelFor(m => m.Karma, new { @class = "form-line-box-left-label" })
             </div>
             <div class="form-line-box-right">
-                @Html.EditorFor(s => s.Group.Karma, new { htmlAttributes = new { @class = "form-line-box-right-input" } })
+                @Html.EditorFor(s => s.Karma, new { htmlAttributes = new { @class = "form-line-box-right-input" } })
             </div>
         </div>
         <div class="form-line-empty">
             <div class="form-line-box-left">
             </div>
             <div class="form-line-box-right">
-                @Html.ValidationMessageFor(m => m.Group.Karma)
+                @Html.ValidationMessageFor(m => m.Karma)
             </div>
         </div>
         <div class="form-line">
             <div class="form-line-box-left">
-                @Html.LabelFor(m => m.Group.Rank, new { @class = "form-line-box-left-label" })
+                @Html.LabelFor(m => m.Rank, new { @class = "form-line-box-left-label" })
             </div>
             <div class="form-line-box-right">
-                @Html.DropDownListFor(s => s.Group.Rank, new SelectList(Enum.GetNames(typeof(Rank))), new { @class = "form-line-box-right-input" })
+                @Html.DropDownListFor(s => s.Rank, new SelectList(Enum.GetNames(typeof(Rank))), new { @class = "form-line-box-right-input" })
             </div>
         </div>
         <div class="form-line-empty">
             <div class="form-line-box-left">
             </div>
             <div class="form-line-box-right">
-                @Html.ValidationMessageFor(m => m.Group.Rank)
+                @Html.ValidationMessageFor(m => m.Rank)
             </div>
         </div>
         <div class="form-line">
             <div class="form-line-box-left">
-                @Html.LabelFor(m => m.Group.ImagePath, new { @class = "form-line-box-left-label" })
+                @Html.LabelFor(m => m.ImagePath, new { @class = "form-line-box-left-label" })
             </div>
             <div class="form-line-box-right">
-                @Html.EditorFor(s => s.Group.ImagePath, new { htmlAttributes = new { @class = "form-line-box-right-input" } })
+                @Html.EditorFor(s => s.ImagePath, new { htmlAttributes = new { @class = "form-line-box-right-input" } })
             </div>
         </div>
         <div class="form-line-empty">
             <div class="form-line-box-left">
             </div>
             <div class="form-line-box-right">
-                @Html.ValidationMessageFor(m => m.Group.ImagePath)
+                @Html.ValidationMessageFor(m => m.ImagePath)
             </div>
         </div>
         <div class="form-line">

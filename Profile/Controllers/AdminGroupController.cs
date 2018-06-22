@@ -27,15 +27,15 @@ namespace Profile.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(CreateViewModel model)
+        public ActionResult Create(Group group)
         {
             if (ModelState.IsValid)
             {
-                model.Group.CreationDate = DateTime.Now;
-                DBWorker.CreateGroup(model.Group);
+                group.CreationDate = DateTime.Now;
+                DBWorker.CreateGroup(group);
                 return RedirectToAction("Index");
             }
-            else return View(model);
+            else return View(group);
         } // end Add()
 
         [HttpGet]
