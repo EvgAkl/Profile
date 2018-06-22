@@ -90,28 +90,69 @@
     flex-direction : row;
     justify-content : center;
 }
-.table-full{
-    width : 80%;
+.table{
+    border-spacing : 0;
+    margin : 70px;
 }
-.table-head{
-    font-size : 18px;
+.table>thead{
+    font-size : 26px;
     text-align : center;
+    background-color : snow;
 }
-.table-body{
-    font-size : 14px;
+.table>thead>tr>th{
+    border-bottom-style : solid;
+    border-bottom-width : 2px;
+    border-bottom-color : black;
+    padding : 10px;
+}
+.table>tbody{
+    font-size : 22px;
     text-align : left;
-    background-color : rgb(190, 190, 190)
+    background-color : rgb(190, 190, 190);
 }
-.table-body>tr:hover{
-    background-color : rgb(240, 230, 230)
+.table>tbody>tr>td{
+    border-style : solid;
+    border-width : 1px;
+    padding : 7px 7px 7px 15px;
 }
-.table-column-1,
-.table-column-2,
-.table-column-3,
-.table-column-4,
+
+.table>tbody>tr:hover{
+    background-color : rgb(240, 230, 230);
+}
+.table>tbody>tr:nth-child(even){
+    background-color : yellow;
+}
+.table>tbody>tr:nth-child(even):hover{
+    background-color : rgb(240, 230, 230);
+}
+.table-column-1{
+    width : 130px;
+}
+.table-column-2{
+    width : 10px;
+}
+.table-column-3{
+    width : 100px;
+}
+.table-column-4{
+    width : 100px;
+}
 .table-column-5{
-    width :10%
+    width : 100px;
 }
+.table-column-6{
+    width : 400px;
+}
+.table-column-7{
+    width : 100px;
+}
+.table-column-8{
+    width : 100px;
+}
+.table-label{
+    width : 50px;
+}
+
 /* Form style */
 .form-wrapper{
     display : flex;
