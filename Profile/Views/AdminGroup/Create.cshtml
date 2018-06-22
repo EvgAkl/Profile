@@ -13,8 +13,6 @@
 <div class="form-wrapper">
     @using (Html.BeginForm())
     {
-        @Html.ValidationSummary()
-        @Html.HiddenFor(m => m.Group.CreationDate)
         <div class="form-line">
             <div class="form-line-box-left">
                 @Html.LabelFor(m => m.Group.Name, new { @class = "form-line-box-left-label" })

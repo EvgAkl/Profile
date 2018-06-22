@@ -140,7 +140,7 @@
 }
 .form-line-box-left-label{
     font-size : 36px;
-    color : rgb(0, 0, 0);
+    color : rgb(0, 0, 0)
 }
 .form-line-box-right-input{
     font-size : 32px;
@@ -149,7 +149,7 @@
     color : rgb(10, 50, 50);
 }
 .form-line-box-right-input:focus{
-    background-color : rgb(240, 230, 230);
+    background-color : rgb(250, 240, 240);
 }
 
 
