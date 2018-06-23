@@ -10,7 +10,7 @@
 </div>
 
 <div class="form-wrapper">
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Create", "AdminGroup", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         <div class="form-line">
             <div class="form-line-box-left">
@@ -77,7 +77,7 @@
                 @Html.LabelFor(m => m.ImagePath, new { @class = "form-line-box-left-label" })
             </div>
             <div class="form-line-box-right">
-                @Html.EditorFor(s => s.ImagePath, new { htmlAttributes = new { @class = "form-line-box-right-input" } })
+                <input class="" type="file" name="ImageFile" accept="image/*"/>
             </div>
         </div>
         <div class="form-line-empty">
