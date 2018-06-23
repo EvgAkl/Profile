@@ -31,8 +31,6 @@ namespace Profile.Models.Database
         public DateTime CreationDate { get; set; }
         [Required(ErrorMessage = "Please, set karma.")]
         public int Karma { get; set; }
-        [Required(ErrorMessage = "Please, choose avatar")]
-        [Display(Name = "Choose avatar")]
         public string ImagePath { get; set; } 
     } // end "Group" class
 

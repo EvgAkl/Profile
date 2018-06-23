@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Profile.Models.Database;
 using System.IO;
+using Profile.Models.Database;
+using Profile.ViewModels.Admin.Groups;
 
 namespace Profile.Controllers
 {
@@ -24,19 +25,21 @@ namespace Profile.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Group group, HttpPostedFileBase image)
+        public ActionResult Create(ViewModel_CreateGroup model)
         {
             if (ModelState.IsValid)
             {
+                /*
                 if (image == null || image.ContentLength == 0)
                     return View(group);
-                group.ImagePath = Path.Combine(Server.MapPath("~/Content/UserImages"), image.FileName);
-                image.SaveAs(group.ImagePath);
-                group.CreationDate = DateTime.Now;
-                DBWorker.CreateGroup(group);
+                    */
+                model.group.ImagePath = Path.Combine(Server.MapPath("~/Content/UserImages"), model.image.FileName);
+                model.image.SaveAs(model.group.ImagePath);
+                model.group.CreationDate = DateTime.Now;
+                DBWorker.CreateGroup(model.group);
                 return RedirectToAction("Index");
             }
-            else return View(group);
+            else return View(model);
         } // end Add()
 
         [HttpGet]
