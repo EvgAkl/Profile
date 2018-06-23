@@ -156,6 +156,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\" />
+    <Folder Include="Content\UserImages\" />
     <Folder Include="ViewModels\Admin\" />
   </ItemGroup>
   <ItemGroup>

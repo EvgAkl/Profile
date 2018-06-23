@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Profile.Models.Database;
+using System.IO;
 
 namespace Profile.Controllers
 {
@@ -23,10 +24,14 @@ namespace Profile.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Group group)
+        public ActionResult Create(Group group, HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
             {
+                if (image == null || image.ContentLength == 0)
+                    return View(group);
+                group.ImagePath = Path.Combine(Server.MapPath("~/Content/UserImages"), image.FileName);
+                image.SaveAs(group.ImagePath);
                 group.CreationDate = DateTime.Now;
                 DBWorker.CreateGroup(group);
                 return RedirectToAction("Index");
