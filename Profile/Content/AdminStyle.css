@@ -92,7 +92,7 @@
 }
 .table{
     border-spacing : 0;
-    margin : 70px;
+    margin : 5%;
 }
 .table>thead{
     font-size : 26px;
@@ -107,13 +107,10 @@
 }
 .table>tbody{
     font-size : 22px;
-    text-align : left;
     background-color : rgb(190, 190, 190);
 }
 .table>tbody>tr>td{
-    border-style : solid;
-    border-width : 1px;
-    padding : 7px 7px 7px 15px;
+    padding : 7px 0px 7px 30px;
 }
 
 .table>tbody>tr:hover{
@@ -129,7 +126,7 @@
     width : 130px;
 }
 .table-column-2{
-    width : 10px;
+    width : 120px;
 }
 .table-column-3{
     width : 100px;
@@ -149,10 +146,11 @@
 .table-column-8{
     width : 100px;
 }
+/*
 .table-label{
     width : 50px;
 }
-
+*/
 /* Form style */
 .form-wrapper{
     display : flex;
