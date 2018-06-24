@@ -16,6 +16,7 @@ namespace Profile.Controllers
         {
             List<Group> model = new List<Group>();
             model = DBWorker.GetGroupList();
+            var tt = model;
             return View(model);
         } // end Index()
 
@@ -29,12 +30,10 @@ namespace Profile.Controllers
         {
             if (ModelState.IsValid)
             {
-                /*
-                if (image == null || image.ContentLength == 0)
-                    return View(group);
-                    */
-                model.group.ImagePath = Path.Combine(Server.MapPath("~/Content/UserImages"), model.image.FileName);
-                model.image.SaveAs(model.group.ImagePath);
+                string PathToSaveImage = Path.Combine(Server.MapPath("~/Content/UserImages/"), model.image.FileName);
+                string PathToFindImage = "~/Content/UserImages/" + model.image.FileName;
+                model.image.SaveAs(PathToSaveImage);
+                model.group.ImagePath = PathToFindImage;
                 model.group.CreationDate = DateTime.Now;
                 DBWorker.CreateGroup(model.group);
                 return RedirectToAction("Index");
