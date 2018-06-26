@@ -42,9 +42,8 @@
                         }
                     </td>
                     <td>
-                        @using (Html.BeginForm("Delete"))
+                        @using (Html.BeginForm("Delete", "AdminGroup", line))
                         {
-                            @Html.Hidden("Id", line.GroupId)
                             <input class="button-table button-table-delete" type="submit" value="Delete" />
                         }
                     </td>

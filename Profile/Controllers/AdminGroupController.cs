@@ -63,9 +63,17 @@ namespace Profile.Controllers
         } // end Edit
 
         [HttpPost]
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Group group)
         {
-            DBWorker.RemoveGroup(id);
+            if (group.ImageFileSystemPath != null && System.IO.File.Exists(group.ImageFileSystemPath))
+            {
+                try
+                {
+                    System.IO.File.Delete(group.ImageFileSystemPath);
+                }
+                catch { }  
+            }
+            DBWorker.RemoveGroup(group.GroupId);
             return RedirectToAction("Index");
         } // end Delete
 
