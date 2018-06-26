@@ -35,9 +35,8 @@
                     <td>@Html.DisplayFor(d => line.Karma) </td>
                     <td><img src="@Url.Content(line.ImageProgectLinkPath)" width="150" height="150"/></td>
                     <td>
-                        @using (Html.BeginForm("Edit"))
+                        @using (Html.BeginForm("Edit", "AdminGroup", line))
                         {
-                            @Html.Hidden("Id", line.GroupId)
                             <input class="button-table button-table-create" type="submit" value="Modify" />
                         }
                     </td>

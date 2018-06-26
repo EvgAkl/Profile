@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Profile.ViewModels.Admin.Groups
 {
-    public class ViewModel_CreateGroup
+    public class ViewModel_CreateOrEditGroup
     {
         public Group group { get; set; }
         [Display(Name = "Choose avatar")]

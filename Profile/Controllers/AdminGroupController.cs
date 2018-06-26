@@ -26,13 +26,21 @@ namespace Profile.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(ViewModel_CreateGroup model)
+        public ActionResult Create(ViewModel_CreateOrEditGroup model)
         {
             if (ModelState.IsValid)
             {
-                model.group.ImageFileSystemPath = Path.Combine(Server.MapPath("~/Content/UserImages/"), model.image.FileName);
-                model.group.ImageProgectLinkPath = "~/Content/UserImages/" + model.image.FileName;
-                model.image.SaveAs(model.group.ImageFileSystemPath);
+                try
+                {
+                    model.group.ImageFileSystemPath = Path.Combine(Server.MapPath("~/Content/UserImages/"), model.image.FileName);
+                    model.group.ImageProgectLinkPath = "~/Content/UserImages/" + model.image.FileName;
+                    model.image.SaveAs(model.group.ImageFileSystemPath);
+                }
+                catch (NullReferenceException)
+                {
+                    model.group.ImageFileSystemPath = "~/";
+                    model.group.ImageProgectLinkPath = "~/";
+                }
                 model.group.CreationDate = DateTime.Now.ToShortDateString();
                 DBWorker.CreateGroup(model.group);
                 return RedirectToAction("Index");
@@ -41,11 +49,11 @@ namespace Profile.Controllers
         } // end Add()
 
         [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Group group)
         {
             try
             {
-                Group group = DBWorker.GetGroupList().Find(f => f.GroupId == id);
+                Group target = DBWorker.GetGroupList().Find(f => f.GroupId == group.GroupId);
             }
             catch
             {
@@ -53,12 +61,12 @@ namespace Profile.Controllers
                 return View("Error", errorMessages);
             }
 
-            return View();
-        }
+            return View("Create");
+        } 
         [HttpPost]
-        public ActionResult Edit(Group group)
+        public ActionResult Edit(ViewModel_CreateOrEditGroup model)
         {
-            DBWorker.EditGroup(group);
+            DBWorker.EditGroup(model.group);
             return RedirectToAction("Index");
         } // end Edit
 
