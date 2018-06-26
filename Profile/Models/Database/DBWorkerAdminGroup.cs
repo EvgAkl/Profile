@@ -19,6 +19,7 @@ namespace Profile.Models.Database
 
         public void CreateGroup(Group group)
         {
+            group.CreationDate = DateTime.Now.ToShortDateString();
             database.Groups.Add(group);
             try
             {
