@@ -38,14 +38,14 @@
                         @using (Html.BeginForm("Edit"))
                         {
                             @Html.Hidden("Id", line.GroupId)
-                            <input class="button" type="submit" value="Modify" />
+                            <input class="button-table button-table-create" type="submit" value="Modify" />
                         }
                     </td>
                     <td>
                         @using (Html.BeginForm("Delete"))
                         {
                             @Html.Hidden("Id", line.GroupId)
-                            <input class="button" type="submit" value="Delete" />
+                            <input class="button-table button-table-delete" type="submit" value="Delete" />
                         }
                     </td>
                 </tr>
@@ -58,6 +58,6 @@
 </div>
 
 <div>
-    @Html.ActionLink("Create Group", "Create", null, new { @class = "button button-create " })
+    @Html.ActionLink("Create Group", "Create", null, new { @class = "button button-link" })
 </div>
 
