@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Profile.Models.Database.Context;
 using Profile.Models.Database.AbstractWorkers;
+using System.IO;
 
 namespace Profile.Models.Database
 {
@@ -49,6 +50,8 @@ namespace Profile.Models.Database
                 Group group = database.Groups.Find(id);
                 database.Groups.Remove(group);
                 database.SaveChanges();
+                if (group.ImageFileSystemPath != null && File.Exists(group.ImageFileSystemPath))
+                    File.Delete(group.ImageFileSystemPath);
             }
             catch { }     
         } // end RemoveGroup()

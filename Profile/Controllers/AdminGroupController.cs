@@ -23,7 +23,7 @@ namespace Profile.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            return View(new ViewModel_CreateOrEditGroup());
         }
         [HttpPost]
         public ActionResult Create(ViewModel_CreateOrEditGroup model)
@@ -48,12 +48,14 @@ namespace Profile.Controllers
             else return View(model);
         } // end Add()
 
+        /*
         [HttpGet]
-        public ActionResult Edit(Group group)
+        public ActionResult Edit(int ID)
         {
+            ViewModel_CreateOrEditGroup model = new ViewModel_CreateOrEditGroup();
             try
             {
-                Group target = DBWorker.GetGroupList().Find(f => f.GroupId == group.GroupId);
+                model.group = DBWorker.GetGroupList().Find(f => f.GroupId == ID);
             }
             catch
             {
@@ -61,11 +63,24 @@ namespace Profile.Controllers
                 return View("Error", errorMessages);
             }
 
-            return View("Create");
+            return View("Create", model);
         } 
+        */
+
         [HttpPost]
         public ActionResult Edit(ViewModel_CreateOrEditGroup model)
         {
+            try
+            {
+                if (model.image.FileName != null && System.IO.File.Exists(model.group.ImageFileSystemPath))
+                {
+                    System.IO.File.Delete(model.group.ImageFileSystemPath);
+                    model.group.ImageFileSystemPath = Path.Combine(Server.MapPath("~/Content/UserImages/"), model.image.FileName);
+                    model.group.ImageProgectLinkPath = "~/Content/UserImages/" + model.image.FileName;
+                    model.image.SaveAs(model.group.ImageFileSystemPath);
+                }              
+            }
+            catch (NullReferenceException) { }
             DBWorker.EditGroup(model.group);
             return RedirectToAction("Index");
         } // end Edit
@@ -73,14 +88,6 @@ namespace Profile.Controllers
         [HttpPost]
         public ActionResult Delete(Group group)
         {
-            if (group.ImageFileSystemPath != null && System.IO.File.Exists(group.ImageFileSystemPath))
-            {
-                try
-                {
-                    System.IO.File.Delete(group.ImageFileSystemPath);
-                }
-                catch { }  
-            }
             DBWorker.RemoveGroup(group.GroupId);
             return RedirectToAction("Index");
         } // end Delete
