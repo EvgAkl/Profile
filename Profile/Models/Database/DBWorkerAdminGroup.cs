@@ -36,7 +36,7 @@ namespace Profile.Models.Database
                 entity.Karma = group.Karma;
                 entity.CountMembers = group.CountMembers;
                 entity.CreationDate = group.CreationDate;
-                entity.ImagePath = group.ImagePath;
+                entity.ImageFileSystemPath = group.ImageFileSystemPath;
                 database.SaveChanges();
             }
             catch { }

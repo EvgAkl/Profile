@@ -28,10 +28,11 @@ namespace Profile.Models.Database
         public int CountMembers { get; set; }
         public Rank Rank { get; set; }
         [Display(Name = "Creation date")]
-        public DateTime CreationDate { get; set; }
+        public string CreationDate { get; set; }
         [Required(ErrorMessage = "Please, set karma.")]
         public int Karma { get; set; }
-        public string ImagePath { get; set; } 
+        public string ImageFileSystemPath { get; set; } 
+        public string ImageProgectLinkPath { get; set; }
     } // end "Group" class
 
 } // end namespace

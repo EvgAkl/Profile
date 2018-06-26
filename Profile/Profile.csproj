@@ -130,6 +130,10 @@
     <Compile Include="Migrations\201806232334433_RemoveDataAnatationFromImagePathProperty.Designer.cs">
       <DependentUpon>201806232334433_RemoveDataAnatationFromImagePathProperty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806260716546_ChangeGroupEntity.cs" />
+    <Compile Include="Migrations\201806260716546_ChangeGroupEntity.Designer.cs">
+      <DependentUpon>201806260716546_ChangeGroupEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Database\AbstractWorkers\IWorkerAdminGroup.cs" />
     <Compile Include="Models\Database\Context\EFContext.cs" />
@@ -173,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806232334433_RemoveDataAnatationFromImagePathProperty.resx">
       <DependentUpon>201806232334433_RemoveDataAnatationFromImagePathProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806260716546_ChangeGroupEntity.resx">
+      <DependentUpon>201806260716546_ChangeGroupEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

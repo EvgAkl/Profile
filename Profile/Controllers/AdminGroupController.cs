@@ -30,11 +30,10 @@ namespace Profile.Controllers
         {
             if (ModelState.IsValid)
             {
-                string PathToSaveImage = Path.Combine(Server.MapPath("~/Content/UserImages/"), model.image.FileName);
-                string PathToFindImage = "~/Content/UserImages/" + model.image.FileName;
-                model.image.SaveAs(PathToSaveImage);
-                model.group.ImagePath = PathToFindImage;
-                model.group.CreationDate = DateTime.Now;
+                model.group.ImageFileSystemPath = Path.Combine(Server.MapPath("~/Content/UserImages/"), model.image.FileName);
+                model.group.ImageProgectLinkPath = "~/Content/UserImages/" + model.image.FileName;
+                model.image.SaveAs(model.group.ImageFileSystemPath);
+                model.group.CreationDate = DateTime.Now.ToShortDateString();
                 DBWorker.CreateGroup(model.group);
                 return RedirectToAction("Index");
             }
