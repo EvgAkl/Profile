@@ -47,7 +47,7 @@ namespace Profile.Controllers
             else return View(group);
         } // end Add()
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult Edit(Group group)
         {
             return View();
