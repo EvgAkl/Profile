@@ -14,14 +14,14 @@
     <table class="table">
         <thead>
             <tr>
-                <th class="table-column-1">Name</th>
-                <th class="table-column-2">Creation date</th>
-                <th class="table-column-3">Members count</th>
-                <th class="table-column-4">Rank</th>
-                <th class="table-column-5">Karma</th>
-                <th class="table-column-6">Avatar</th>
-                <th class="table-column-7"></th>
-                <th class="table-column-8"></th>
+                <th>Name</th>
+                <th class="column-small">Change date</th>
+                <th class="column-small">Members count</th>
+                <th>Rank</th>
+                <th>Karma</th>
+                <th>Avatar</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -50,12 +50,10 @@
             }
         </tbody>
     </table>
-
-    
-
+    <div style="margin : 20px 800px 50px 0;">
+        @Html.ActionLink("Create group", "Create", null, new { @class = "button button-link" })
+    </div>
 </div>
 
-<div>
-    @Html.ActionLink("Create group", "Create", null, new { @class = "button button-link" })
-</div>
+
 
