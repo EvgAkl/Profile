@@ -134,6 +134,10 @@
     <Compile Include="Migrations\201806260716546_ChangeGroupEntity.Designer.cs">
       <DependentUpon>201806260716546_ChangeGroupEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806271201108_ChangeGroupEntity_2.cs" />
+    <Compile Include="Migrations\201806271201108_ChangeGroupEntity_2.Designer.cs">
+      <DependentUpon>201806271201108_ChangeGroupEntity_2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Database\AbstractWorkers\IWorkerAdminGroup.cs" />
     <Compile Include="Models\Database\Context\EFContext.cs" />
@@ -180,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806260716546_ChangeGroupEntity.resx">
       <DependentUpon>201806260716546_ChangeGroupEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806271201108_ChangeGroupEntity_2.resx">
+      <DependentUpon>201806271201108_ChangeGroupEntity_2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
