@@ -47,27 +47,14 @@ namespace Profile.Controllers
             else return View(group);
         } // end Add()
 
-        /*
         [HttpGet]
-        public ActionResult Edit(int ID)
+        public ActionResult Edit(Group group)
         {
-            ViewModel_CreateOrEditGroup model = new ViewModel_CreateOrEditGroup();
-            try
-            {
-                model.group = DBWorker.GetGroupList().Find(f => f.GroupId == ID);
-            }
-            catch
-            {
-                string[] errorMessages = { "This group not fond" };
-                return View("Error", errorMessages);
-            }
-
-            return View("Create", model);
+            return View();
         } 
-        */
 
         [HttpPost]
-        public ActionResult Edit(ViewModel_CreateOrEditGroup model)
+        public ActionResult EditGroup(ViewModel_CreateOrEditGroup model)
         {
             try
             {

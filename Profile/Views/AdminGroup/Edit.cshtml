@@ -1,0 +1,95 @@
+﻿@using Profile.Models.Database;
+@model Group
+
+@{
+    ViewBag.Title = "Create Group";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="header action-header ">
+    Edit group
+</div>
+
+<div class="form-wrapper">
+    @Html.ValidationSummary()
+    @using (Html.BeginForm("EditGroup", "AdminGroup", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(h => h.GroupId)
+        @Html.HiddenFor(h => h.ImageFileSystemPath)
+        @Html.HiddenFor(h => h.ImageProgectLinkPath)
+        <div class="form-line">
+            <div class="form-line-box-left">
+                @Html.LabelFor(m => m.Name, new { @class = "form-line-box-left-label" })
+            </div>
+            <div class="form-line-box-right">
+                @Html.EditorFor(s => s.Name, new { htmlAttributes = new { @class = "form-line-box-right-input" } })
+            </div>
+        </div>
+        <div class="form-line-empty">
+            <div class="form-line-box-left">
+            </div>
+            <div class="form-line-box-right">
+                @Html.ValidationMessageFor(m => m.Name)
+            </div>
+        </div>
+        <div class="form-line">
+            <div class="form-line-box-left">
+                @Html.LabelFor(m => m.CountMembers, new { @class = "form-line-box-left-label" })
+            </div>
+            <div class="form-line-box-right">
+                @Html.EditorFor(s => s.CountMembers, new { htmlAttributes = new { @class = "form-line-box-right-input" } })
+            </div>
+        </div>
+        <div class="form-line-empty">
+            <div class="form-line-box-left">
+            </div>
+            <div class="form-line-box-right">
+                @Html.ValidationMessageFor(m => m.CountMembers)
+            </div>
+        </div>
+        <div class="form-line">
+            <div class="form-line-box-left">
+                @Html.LabelFor(m => m.Karma, new { @class = "form-line-box-left-label" })
+            </div>
+            <div class="form-line-box-right">
+                @Html.EditorFor(s => s.Karma, new { htmlAttributes = new { @class = "form-line-box-right-input" } })
+            </div>
+        </div>
+        <div class="form-line-empty">
+            <div class="form-line-box-left">
+            </div>
+            <div class="form-line-box-right">
+                @Html.ValidationMessageFor(m => m.Karma)
+            </div>
+        </div>
+        <div class="form-line">
+            <div class="form-line-box-left">
+                @Html.LabelFor(m => m.Rank, new { @class = "form-line-box-left-label" })
+            </div>
+            <div class="form-line-box-right">
+                @Html.DropDownListFor(m => m.Rank, new SelectList(Enum.GetNames(typeof(Rank))), new { @class = "form-line-box-right-input" })
+            </div>
+        </div>
+        <div class="form-line-empty">
+            <div class="form-line-box-left">
+            </div>
+            <div class="form-line-box-right">
+                @Html.ValidationMessageFor(m => m.Rank)
+            </div>
+        </div>
+        <div class="form-line">
+            <div class="form-line-box-left">
+                @Html.Label("Choose avatar", new { @class = "form-line-box-left-label" })
+            </div>
+            <div class="form-line-box-right">
+                <input type="file" name="image" accept="image/*" />
+            </div>
+        </div>
+        <div class="form-line">
+            <div class="form-line-box">
+                <input class="button button-form " type="submit" value="Save" />
+                @Html.ActionLink("Cancle", "Index", null, new { @class = "button button-link" });
+            </div>
+        </div>
+    }
+
+</div>
