@@ -23,28 +23,28 @@ namespace Profile.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View(new ViewModel_CreateOrEditGroup());
+            return View();
         }
         [HttpPost]
-        public ActionResult Create(ViewModel_CreateOrEditGroup model)
+        public ActionResult Create(Group group, HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
             {
                 try
                 {   // Save new avatar
-                    model.group.ImageFileSystemPath = Path.Combine(Server.MapPath("~/Content/UserImages/"), model.image.FileName);
-                    model.group.ImageProgectLinkPath = "~/Content/UserImages/" + model.image.FileName;
-                    model.image.SaveAs(model.group.ImageFileSystemPath);
+                    group.ImageFileSystemPath = Path.Combine(Server.MapPath("~/Content/UserImages/"), image.FileName);
+                    group.ImageProgectLinkPath = "~/Content/UserImages/" + image.FileName;
+                    image.SaveAs(group.ImageFileSystemPath);
                 }
                 catch (NullReferenceException)
                 {   // Save without avatar
-                    model.group.ImageFileSystemPath = "~/";
-                    model.group.ImageProgectLinkPath = "~/";
+                    group.ImageFileSystemPath = "~/";
+                    group.ImageProgectLinkPath = "~/";
                 }
-                DBWorker.CreateGroup(model.group);
+                DBWorker.CreateGroup(group);
                 return RedirectToAction("Index");
             }
-            else return View(model);
+            else return View(group);
         } // end Add()
 
         /*
