@@ -125,9 +125,10 @@
     margin : 50px;
 }
 .table>thead{
-    font-size : 26px;
+    font-size : 28px;
     text-align : center;
-    background-color : snow;
+    color : rgb(200, 200, 20);
+    background-color : rgb(10, 50, 50);
 }
 .table>thead>tr>th{
     border-bottom-style : solid;
@@ -136,21 +137,22 @@
     padding : 10px;
 }
 .table>tbody{
-    font-size : 22px;
-    background-color : rgb(190, 190, 190);
+    font-size : 26px;
+    color : rgb(0, 0, 0);
+    background-color : rgb(180, 200, 200);
 }
 .table>tbody>tr>td{
     padding : 7px 10px 7px 30px;
 }
 
 .table>tbody>tr:hover{
-    background-color : rgb(240, 230, 230);
+    background-color : rgb(230, 240, 240);
 }
 .table>tbody>tr:nth-child(even){
-    background-color : yellow;
+    background-color : rgb(160, 190, 190);
 }
 .table>tbody>tr:nth-child(even):hover{
-    background-color : rgb(240, 230, 230);
+    background-color : rgb(230, 240, 240);
 }
 .table-column-1{
     width : 130px;
