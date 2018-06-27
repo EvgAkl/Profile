@@ -27,8 +27,7 @@ namespace Profile.Models.Database
         [Required(ErrorMessage = "Please, enter count of group members. ")]
         public int CountMembers { get; set; }
         public Rank Rank { get; set; }
-        [Display(Name = "Creation date")]
-        public string CreationDate { get; set; }
+        public DateTime DateOfChange { get; set; }
         [Required(ErrorMessage = "Please, set karma.")]
         public int Karma { get; set; }
         public string ImageFileSystemPath { get; set; } 

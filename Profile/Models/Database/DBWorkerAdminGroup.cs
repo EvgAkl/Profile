@@ -19,7 +19,7 @@ namespace Profile.Models.Database
 
         public void CreateGroup(Group group)
         {
-            group.CreationDate = DateTime.Now.ToShortDateString();
+            group.DateOfChange = DateTime.Now;
             database.Groups.Add(group);
             try
             {
@@ -37,7 +37,7 @@ namespace Profile.Models.Database
                 entity.Rank = group.Rank;
                 entity.Karma = group.Karma;
                 entity.CountMembers = group.CountMembers;
-                entity.CreationDate = group.CreationDate;
+                entity.DateOfChange = group.DateOfChange;
                 entity.ImageFileSystemPath = group.ImageFileSystemPath;
                 database.SaveChanges();
             }
