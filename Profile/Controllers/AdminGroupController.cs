@@ -54,20 +54,22 @@ namespace Profile.Controllers
         } 
 
         [HttpPost]
-        public ActionResult EditGroup(ViewModel_CreateOrEditGroup model)
+        public ActionResult EditGroup(Group group, HttpPostedFileBase image)
         {
             try
             {
-                if (model.image.FileName != null && System.IO.File.Exists(model.group.ImageFileSystemPath))
+                if (image.FileName != null)
                 {
-                    System.IO.File.Delete(model.group.ImageFileSystemPath);
-                    model.group.ImageFileSystemPath = Path.Combine(Server.MapPath("~/Content/UserImages/"), model.image.FileName);
-                    model.group.ImageProgectLinkPath = "~/Content/UserImages/" + model.image.FileName;
-                    model.image.SaveAs(model.group.ImageFileSystemPath);
+                    group.ImageFileSystemPath = Path.Combine(Server.MapPath("~/Content/UserImages/"), image.FileName);
+                    group.ImageProgectLinkPath = "~/Content/UserImages/" + image.FileName;
+                    image.SaveAs(group.ImageFileSystemPath);
                 }              
             }
-            catch (NullReferenceException) { }
-            DBWorker.EditGroup(model.group);
+            catch {
+                group.ImageFileSystemPath = "~/";
+                group.ImageProgectLinkPath = "~/";
+            }
+            DBWorker.EditGroup(group);
             return RedirectToAction("Index");
         } // end Edit
 

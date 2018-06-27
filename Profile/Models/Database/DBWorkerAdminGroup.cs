@@ -32,14 +32,19 @@ namespace Profile.Models.Database
         {
             try
             {
+                string OldImageFileSystemPath;
                 Group entity = database.Groups.Find(group.GroupId);
                 entity.Name = group.Name;
                 entity.Rank = group.Rank;
                 entity.Karma = group.Karma;
                 entity.CountMembers = group.CountMembers;
-                entity.DateOfChange = group.DateOfChange;
+                entity.DateOfChange = DateTime.Now;
+                OldImageFileSystemPath = entity.ImageFileSystemPath;
                 entity.ImageFileSystemPath = group.ImageFileSystemPath;
+                entity.ImageProgectLinkPath = group.ImageProgectLinkPath;
                 database.SaveChanges();
+                if (OldImageFileSystemPath != group.ImageFileSystemPath && File.Exists(OldImageFileSystemPath))
+                    File.Delete(OldImageFileSystemPath);
             }
             catch { }
         } // end EditGroup()
