@@ -17,7 +17,7 @@ namespace Profile.Controllers
         {
             DBWorker = DBWorkerParam;
         } // end constructor
-        public ActionResult Index()
+        public ViewResult Index()
         {
             List<Group> model = new List<Group>();
             model = DBWorker.GetGroupList();
@@ -26,7 +26,7 @@ namespace Profile.Controllers
         } // end Index()
 
         [HttpGet]
-        public ActionResult Create()
+        public ViewResult Create()
         {
             return View();
         }
@@ -41,8 +41,8 @@ namespace Profile.Controllers
                     group.ImageProgectLinkPath = "~/Content/UserImages/" + image.FileName;
                     image.SaveAs(group.ImageFileSystemPath);
                 }
-                catch (NullReferenceException)
-                {   // Save without avatar
+                catch {   
+                    // Save without avatar
                     group.ImageFileSystemPath = "~/";
                     group.ImageProgectLinkPath = "~/";
                 }
@@ -53,7 +53,7 @@ namespace Profile.Controllers
         } // end Add()
 
         [HttpPost]
-        public ActionResult Edit(Group group)
+        public ViewResult Edit(Group group)
         {
             return View();
         } 
@@ -70,10 +70,7 @@ namespace Profile.Controllers
                     image.SaveAs(group.ImageFileSystemPath);
                 }              
             }
-            catch {
-                group.ImageFileSystemPath = "~/";
-                group.ImageProgectLinkPath = "~/";
-            }
+            catch { }
             DBWorker.EditGroup(group);
             return RedirectToAction("Index");
         } // end Edit
