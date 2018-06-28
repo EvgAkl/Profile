@@ -5,13 +5,18 @@ using System.Web;
 using System.Web.Mvc;
 using System.IO;
 using Profile.Models.Database;
+using Profile.Models.Database.AbstractWorkers;
 using Profile.ViewModels.Admin.Groups;
 
 namespace Profile.Controllers
 {
     public class AdminGroupController : Controller
     {
-        DBWorkerAdminGroup DBWorker = new DBWorkerAdminGroup();
+        private IWorkerAdminGroup DBWorker;
+        public AdminGroupController(IWorkerAdminGroup DBWorkerParam)
+        {
+            DBWorker = DBWorkerParam;
+        } // end constructor
         public ActionResult Index()
         {
             List<Group> model = new List<Group>();

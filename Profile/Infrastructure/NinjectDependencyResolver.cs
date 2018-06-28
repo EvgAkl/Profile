@@ -30,7 +30,7 @@ namespace Profile.Infrastructure
 
         private void AddBinding()
         {
-
+            kernel.Bind<IWorkerAdminGroup>().To<DBWorkerAdminGroup>();
         } // end AddBinding()
 
     } // end class

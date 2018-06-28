@@ -2,10 +2,11 @@
 
 namespace Profile.Models.Database.AbstractWorkers
 {
-    interface IWorkerAdminGroup
+    public interface IWorkerAdminGroup
     {
         List<Group> GetGroupList();
         void CreateGroup(Group group);
+        void EditGroup(Group group);
         void RemoveGroup(int id);
     }
 
